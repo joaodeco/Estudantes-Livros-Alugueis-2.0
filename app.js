@@ -14,7 +14,20 @@ const criarLivro = require ('./Livros/criarLivro')
 app.post('/', criarLivro)
 
 const listarLivros = require ('./Livros/listarLivros')
-app.get('/', listarFuncionarios)
+app.get('/', listarLivros)
+
+//ALUGUEL
+const criarAluguel = require ('./Aluguel/criarAluguel')
+app.post('/', criarLivro)
+
+const listarAlugueis = require ('./Aluguel/listarAlugueis')
+app.get('/', listarAlugueis)
+
+const atualizarAluguel = require('./Aluguel/atualizarAluguel');
+app.put('/', atualizarAluguel);
+
+const {deletarAluguel} = require('./Aluguel/deletarAluguel');
+app.delete('/', deletarAluguel);
 
 const esquemaLivro = new mongoose.Schema({
     titulo: { type: String, required: true },
