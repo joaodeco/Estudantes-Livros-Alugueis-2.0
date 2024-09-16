@@ -9,10 +9,12 @@ mongoose
     .then(() => console.log("Conectado ao MongoDB"))
     .catch((erro) => console.error("Erro ao conectar ao MongoDB:", erro));
 
-const port = 3000;
-app.listen(port, () => {
-    console.log(`Servidor rodando na porta ${port}`);
-});
+//LIVROS
+const criarLivro = require ('./Livros/criarLivro')
+app.post('/', criarLivro)
+
+const listarLivros = require ('./Livros/listarLivros')
+app.get('/', listarFuncionarios)
 
 const esquemaLivro = new mongoose.Schema({
     titulo: { type: String, required: true },
@@ -41,4 +43,7 @@ const esquemaAluguel = new mongoose.Schema({
 
 const Aluguel = mongoose.model("Aluguel", esquemaAluguel);
 
-
+const port = 3000;
+app.listen(port, () => {
+    console.log(`Servidor rodando na porta ${port}`);
+});
